@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { IconButton } from '../IconButton';
-
+import Icon from 'react-native-vector-icons/Feather'
 import { Container, Greeting, Title, SubTitle } from './styles';
 
 export function Header() {
@@ -9,11 +8,10 @@ export function Header() {
   return (
     <Container>
       <Greeting>
-        <Title>HelpDesk</Title>
-        <SubTitle>Conte conosco, estamos aqui para ajudar.</SubTitle>
+        <Title>Dashboard</Title>
+        <SubTitle>Organize suas financas.</SubTitle>
       </Greeting>
-
-      <IconButton icon="logout" />
+      <Icon name="bell"  size={40} color="#4B5563"/>
     </Container>
   );
 }

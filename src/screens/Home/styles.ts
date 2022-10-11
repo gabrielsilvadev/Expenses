@@ -6,3 +6,8 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   padding: ${getStatusBarHeight() + 24}px 24px ${getBottomSpace() + 14}px ;
 `;
+
+export const Chart = styled.View`
+width: 100%;
+align-items: center;
+`

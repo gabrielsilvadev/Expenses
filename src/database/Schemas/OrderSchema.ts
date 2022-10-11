@@ -1,13 +1,13 @@
 export const OrderSchema = {
-  name: "Order",
+  name: "expenses",
   properties: {
-    _id: "string",
-    patrimony: "string",
-    equipment: "string",
-    description: "string",
-    status: "string",
+    id: "string",
+    label: "string",
+    value: "number",
+    color: "string",
+    percent: "string",
     created_at: "date",
   },
 
-  primaryKey: "_id",
+  primaryKey: "id",
 };

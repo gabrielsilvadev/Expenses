@@ -46,7 +46,7 @@ export function NewOrder() {
       </Form>
 
       <Button
-        title="Enviar chamado"
+        title="Salvar"
         isLoading={isLoading}
       />
     </Container>
