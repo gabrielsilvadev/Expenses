@@ -1,45 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 const Tab = createBottomTabNavigator();
 import { Home } from "../screens/Home";
-import { NewOrder } from "../screens/NewExpenses";
+import { NewExpenses } from "../screens/NewExpenses";
 import { User } from "../screens/User";
-
+import { ShowExpenses} from '../screens/ShowExpenses'
 export function AppRoutes() {
+  const Stack = createNativeStackNavigator();
+
+  const [showPlus, setShowPlus] = useState(true);
   return (
     <NavigationContainer independent={true}>
-      <Tab.Navigator  >
-        <Tab.Screen name="Home" component={Home} 
-         options={() => ({
-          headerShown: false,
-          title: "",
-          tabBarActiveTintColor: '#27AE60',
-          tabBarIcon: ({ color }) => <Icon name="home" size={26} color={color} />,
-        })}/>
+      <Tab.Navigator>
         <Tab.Screen
-          name="TabMain"
-          component={NewOrder}
+          name="Home"
+          component={Home}
+          listeners={{
+            tabPress: (e) => {
+              setShowPlus(true);
+            },
+          }}
           options={() => ({
             headerShown: false,
             title: "",
-            tabBarActiveTintColor: '#719A82',
+            tabBarActiveTintColor: "#27AE60",
             tabBarIcon: ({ color }) => (
-              <View  style={styles.iconTabRound}>
-                <Icon name="plus" size={26} color="#fff" />
-              </View>
+              <Icon name="home" size={26} color={color} />
             ),
           })}
         />
-        <Tab.Screen name="User" component={User} 
-        options={() => ({
-          headerShown: false,
-          title: "",
-          tabBarActiveTintColor: '#27AE60',
-          tabBarIcon: ({ color }) => <Icon name="user" size={26} color={color} />,
-        })}
+        <Tab.Screen
+          name="TabMain"
+          component={NewExpenses}
+          listeners={{
+            tabPress: (e) => {
+              setShowPlus(false);
+            },
+          }}
+          options={() => ({
+            headerShown: false,
+            title: "",
+            tabBarActiveTintColor: "#719A82",
+            tabBarVisible: true,
+            tabBarIcon: ({ color }) =>
+              showPlus ? (
+                <View style={styles.iconTabRound}>
+                  <Icon name="plus" size={26} color="#fff" />
+                </View>
+              ) : (
+                <View
+                  style={[
+                    styles.iconTabRound,
+                    { width: 40, marginTop: '20%',opacity: 0.5, height: 40 },
+                  ]}
+                >
+                  <Icon name="plus" size={26} color="#fff" />
+                </View>
+              ),
+          })}
+        />
+        <Tab.Screen
+          name="User"
+          component={User}
+          listeners={{
+            tabPress: (e) => {
+              setShowPlus(true);
+            },
+          }}
+          options={() => ({
+            headerShown: false,
+            title: "",
+            tabBarActiveTintColor: "#27AE60",
+            tabBarIcon: ({ color }) => (
+              <Icon name="user" size={26} color={color} />
+            ),
+          })}
         />
       </Tab.Navigator>
     </NavigationContainer>

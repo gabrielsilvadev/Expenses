@@ -6,7 +6,6 @@ export const Container = styled.View`
   padding: 24px;
 `;
 
-
 export const Header = styled.View`
   width: 100%;
 

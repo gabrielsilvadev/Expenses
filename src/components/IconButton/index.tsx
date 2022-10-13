@@ -13,7 +13,7 @@ export function IconButton({ icon, ...rest }: Props) {
   const { COLORS } = useTheme();
 
   return (
-    <Container {...rest}>
+    <Container {...rest} >
       <MaterialIcons
         name={icon}
         size={18}

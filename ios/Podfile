@@ -11,6 +11,7 @@ install! 'cocoapods',
 
 target 'realmdbapp' do
   use_expo_modules!
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
   config = use_native_modules!
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']

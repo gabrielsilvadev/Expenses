@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Container , Chart} from './styles';
+import { Container , Chart, Cards} from './styles';
 import { VictoryPie, VictoryTooltip } from 'victory-native'
 import { Header } from '../../components/Header';
-import { Orders } from '../../components/Orders';
+import { Card } from '../../components/Card';
 import { Button } from '../../components/Button';
 
 export function Home() {
@@ -47,10 +47,11 @@ export function Home() {
       innerRadius={85}
       />
       </Chart>
-      <Button
-        title="Novo chamado"
-        onPress={handleNewOrder}
-      />
+      <Cards>
+      <Card text="Pix" icon='send'/>
+      <Card text="Dinheiro" icon='cash'/>
+      <Card text="Contas" icon='bills'/>
+      </Cards>
     </Container>
   );
 }

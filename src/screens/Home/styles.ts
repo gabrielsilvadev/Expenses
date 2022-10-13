@@ -9,5 +9,13 @@ export const Container = styled.View`
 
 export const Chart = styled.View`
 width: 100%;
+height: 70%;
 align-items: center;
+`
+
+export const Cards = styled.View`
+flex: 1;
+justify-content: space-between;
+flex-direction: row;
+backgroud-color: #fff
 `
