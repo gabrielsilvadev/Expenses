@@ -11,4 +11,4 @@ export default {
     WHITE: '#FFFFFF',
     BORDER: '#C5CADA'
   }
-};
+}

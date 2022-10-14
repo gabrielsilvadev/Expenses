@@ -35,25 +35,9 @@ export function NewExpenses() {
   
   const navigation = useNavigation();
 
- 
   function handleBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
-  /*async function handleNewExpanses(){
-    const realm = await getRealm()
-    try{
-      setIsLoading(true)
-    realm.write(()=>{
-     realm.create("Expenses",{
-      label,
-      value,
-      color
-     })
-    })
-    }catch(err){
-
-    }
-  }*/
 
   return (
     <Container>
@@ -84,5 +68,5 @@ export function NewExpenses() {
       <Button title="Salvar" isLoading={isLoading}  />
       </Form>
     </Container>
-  );
+  )
 }

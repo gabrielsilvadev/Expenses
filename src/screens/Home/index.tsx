@@ -1,17 +1,21 @@
-import React, {useState} from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Container , Chart, Cards, Title, View} from './styles';
+import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react'
 import { VictoryPie, VictoryTooltip } from 'victory-native'
-import { Header } from '../../components/Header';
-import { Card } from '../../components/Card';
+
+import { Button } from '../../components/Button'
+import { Card } from '../../components/Card'
+import { Header } from '../../components/Header'
+import { Cards, Chart, Container, Title } from './styles'
 
 export function Home() {
-  const navigation = useNavigation();
-  const [data, setData] = useState([ { x: "Cats", y: 35, color: "blue" },
-  { x: "Dogs", y: 10, color: "red"},
-  { x: "Birds", y: 40 , color: "green"}])
-  function toGoExpenses() {
-    navigation.navigate("ShowExpenses");
+  const navigation = useNavigation()
+  const [data, setData] = useState([
+    { x: 'Cats', y: 35, color: 'blue' },
+    { x: 'Dogs', y: 40, color: 'red' },
+    { x: 'Birds', y: 55, color: 'green' }
+  ])
+  function handleNewOrder() {
+    navigation.navigate('new')
   }
 
   return (
@@ -55,5 +59,5 @@ export function Home() {
       <Card text="Contas" icon='bills' onPress={()=>toGoExpenses()}/>
       </Cards>
     </Container>
-  );
+  )
 }

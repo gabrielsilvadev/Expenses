@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FlatList } from 'react-native';
+import React, { useState } from 'react'
+import { FlatList } from 'react-native'
 
 import { Load } from '../Load';
 import { Filters } from '../Filters';
@@ -21,20 +21,18 @@ export function ListExpenses() {
         <Counter>{orders.length}</Counter>
       </Header>
 
-      {
-        isLoading ?
-          <Load />
-          : <FlatList
-            data={orders}
-            keyExtractor={item => item._id}
-            renderItem={({ item }) => (
-              <Order data={item} />
-            )}
-            contentContainerStyle={{ paddingBottom: 100 }}
-            showsVerticalScrollIndicator={false}
-            style={{ flex: 1 }}
-          />
-      }
+      {isLoading ? (
+        <Load />
+      ) : (
+        <FlatList
+          data={orders}
+          keyExtractor={(item) => item._id}
+          renderItem={({ item }) => <Order data={item} />}
+          contentContainerStyle={{ paddingBottom: 100 }}
+          showsVerticalScrollIndicator={false}
+          style={{ flex: 1 }}
+        />
+      )}
     </Container>
-  );
+  )
 }
