@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
-import {View} from 'react-native'
+import {ListExpenses} from '../../components/ListExpenses'
+import {View, TouchableOpacity} from 'react-native'
 export function ShowExpenses() {
   const [isLoading, setIsLoading] = useState(false);
   const [patrimony, setPatrimony] = useState('');
@@ -15,6 +15,8 @@ export function ShowExpenses() {
   }
 
   return (
-    <View></View>
+    <View>
+     <ListExpenses />
+    </View>
   );
 }

@@ -5,9 +5,9 @@ import { Load } from '../Load';
 import { Filters } from '../Filters';
 import { Order, OrderProps } from '../Order';
 
-import { Container, Header, Title, Counter } from './styles';
+import { Container,Counter,Header,Title } from './styles';
 
-export function Orders() {
+export function ListExpenses() {
   const [isLoading, setIsLoading] = useState(false);
   const [orders, setOrders] = useState<OrderProps[]>([]);
   const [status, setStatus] = useState('open');

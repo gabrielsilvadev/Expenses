@@ -1,25 +1,27 @@
 import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Container , Chart, Cards} from './styles';
+import { Container , Chart, Cards, Title, View} from './styles';
 import { VictoryPie, VictoryTooltip } from 'victory-native'
 import { Header } from '../../components/Header';
 import { Card } from '../../components/Card';
-import { Button } from '../../components/Button';
 
 export function Home() {
   const navigation = useNavigation();
   const [data, setData] = useState([ { x: "Cats", y: 35, color: "blue" },
-  { x: "Dogs", y: 40, color: "red"},
-  { x: "Birds", y: 55 , color: "green"}])
-  function handleNewOrder() {
-    navigation.navigate("new");
+  { x: "Dogs", y: 10, color: "red"},
+  { x: "Birds", y: 40 , color: "green"}])
+  function toGoExpenses() {
+    navigation.navigate("ShowExpenses");
   }
 
   return (
     <Container>
       <Header />
-      <Chart>  
+      <Chart>
+      <Title>$4000</Title>
       <VictoryPie
+      height={350}
+      cornerRadius={16}
       data={data}
       animate={
         {
@@ -29,7 +31,7 @@ export function Home() {
       }
       style={{
         labels:{
-          fill: '#fff'
+          fill: '#fff',
         }
       }}
       colorScale={data.map(c => c.color)}
@@ -44,13 +46,13 @@ export function Home() {
        }
        />
       }
-      innerRadius={85}
+      innerRadius={80}
       />
       </Chart>
       <Cards>
-      <Card text="Pix" icon='send'/>
+      <Card text="Pix" icon='send' />
       <Card text="Dinheiro" icon='cash'/>
-      <Card text="Contas" icon='bills'/>
+      <Card text="Contas" icon='bills' onPress={()=>toGoExpenses()}/>
       </Cards>
     </Container>
   );

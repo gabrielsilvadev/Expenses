@@ -9,18 +9,8 @@ import { Input } from '../Input';
 
 
 
-export function PicketInput({ ...rest }: TextInputProps) {
-    const [date, setDate] = useState(new Date())
-    const [show, setShow] = useState(false)
-    const [dateInput, setDateInput] = useState('')
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date
-        setShow(false)
-        setDate(currentDate)
-        setDateInput(moment(currentDate).format("DD/MM/YYYY").toString())
-      }
-    
-   
+export function PicketInput({show, date,setShow,setOnChange,dateInput, ...rest }: TextInputProps) {
+  
     return (
       <Container >
         <TouchableOpacity onPress={()=> setShow(!show)}>
@@ -28,7 +18,7 @@ export function PicketInput({ ...rest }: TextInputProps) {
         </Input>
         </TouchableOpacity>
         { show ? (
-        <RNDateTimePicker  value={new Date} onChange={onChange} is24Hour={true} /> )
+        <RNDateTimePicker  value={new Date} onChange={setOnChange} is24Hour={true} {...rest} /> )
        : <Text/>} 
       </Container>
     );

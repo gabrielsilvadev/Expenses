@@ -14,6 +14,6 @@ export const Title = styled.Text`
   flex: 1;
   margin-top: 4px
   font-size: 14px;
-  color: #4B5563;
+  color: ${({ theme }) => theme.COLORS.TEXT};
   font-weight: 400;
 `;

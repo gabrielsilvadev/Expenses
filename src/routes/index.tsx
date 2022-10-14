@@ -1,12 +1,12 @@
 import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,  DefaultTheme, DarkTheme } from '@react-navigation/native';
+import LinkingConfiguration from '../routes/LinkingConfiguration'
+import { RootNavigator } from './app.routes';
 
-import { AppRoutes } from './app.routes';
-
-export function Routes() {
+export function Routes({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
-    <NavigationContainer>
-      <AppRoutes />
+    <NavigationContainer  linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <RootNavigator/>
     </NavigationContainer>
   );
 }

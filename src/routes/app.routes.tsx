@@ -4,18 +4,41 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
-const Tab = createBottomTabNavigator();
 import { Home } from "../screens/Home";
 import { NewExpenses } from "../screens/NewExpenses";
 import { User } from "../screens/User";
 import { ShowExpenses} from '../screens/ShowExpenses'
-export function AppRoutes() {
-  const Stack = createNativeStackNavigator();
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+
+export function RootNavigator() {
+
+  const Stack = createNativeStackNavigator();
+  return (
+    <Stack.Navigator >
+      <Stack.Screen name="Root" component={AppRoutes} options={{ headerShown: false }} />
+      <Stack.Screen name="ShowExpenses" component={ShowExpenses} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
+
+function AppRoutes() {
+  const Tab = createBottomTabNavigator();
   const [showPlus, setShowPlus] = useState(true);
   return (
     <NavigationContainer independent={true}>
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{tabBarShowLabel: false, 
+      tabBarStyle:{
+        backgroundColor: '#fff',
+        position: 'absolute',
+        bottom: 15,
+        alignContent: 'center',
+        width: 327,
+        left: 40,
+        height: 65,
+        borderRadius: 100
+      }
+      }}>
         <Tab.Screen
           name="Home"
           component={Home}
@@ -34,7 +57,7 @@ export function AppRoutes() {
           })}
         />
         <Tab.Screen
-          name="TabMain"
+          name="Plus"
           component={NewExpenses}
           listeners={{
             tabPress: (e) => {

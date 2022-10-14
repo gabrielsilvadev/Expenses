@@ -9,12 +9,13 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   width: 100%;
-
   flex-direction: row;
   justify-content: space-between;
   margin: 44px 0;
 `;
-
+export const Switch = styled.Switch`
+width: 100%;
+`
 export const Title = styled.Text`
   font-size: 24px;
   font-weight: bold;
