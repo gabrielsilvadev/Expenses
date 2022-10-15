@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import RNPickerSelect from 'react-native-picker-select';
-import { Container, Header, Title, Form} from "./styles";
+import { Container, Header, Title, Form, ViewSwitch} from "./styles";
 import { MaterialIcons } from '@expo/vector-icons';
 
 import { Input } from "../../components/Input";
@@ -16,7 +16,7 @@ export function NewExpenses() {
   const [label, setLabel] = useState("");
   const [value, setValue] = useState("");
   const [color, setColor] = useState("")
-
+  const [isMine, setIsMine] = useState(false)
   const [date, setDate] = useState(new Date())
   const [show, setShow] = useState(false)
   const [dateInput, setDateInput] = useState('')
@@ -44,11 +44,9 @@ export function NewExpenses() {
       <Header>
         <Title>Nova Dispesa</Title>
       </Header>
-
       <Form>
         <Input placeholder="Nome" onChangeText={setLabel} />
-
-        <Input placeholder="Valor" onChangeText={setValue} />
+        <Input placeholder="Valor" keyboardType="numeric" onChangeText={setValue} />
         <RNPickerSelect
             onValueChange={(value) => setColor(value)}
             placeholder={{label: 'Selecione a cor', value: null, color: '#383B43'}}
@@ -60,11 +58,12 @@ export function NewExpenses() {
             ]}
             style={{viewContainer: {borderWidth:1,paddingLeft: 10,borderColor: '#C5CADA',backgroundColor: '#fff',borderRadius: 10}}} 
         />
-        <PicketInput  show={show} date={date} setShow={setShow} setOnChange={onChange} dateInput={dateInput} />
-
-        <Switch  title="Status"  isEnabled={status} toggleSwitch={toggleSwitchStatus}/>
-        <Switch  title="Conta Fixa"  isEnabled={expanseFix} toggleSwitch={toggleSwitchExpanse}/>
         
+        <PicketInput  show={show} date={date} setShow={setShow} setOnChange={onChange} dateInput={dateInput} />
+        <Switch  title="Status"  isEnabled={status} toggleSwitch={toggleSwitchStatus}/>
+        <Switch  title="Esta compra é sua"  isEnabled={isMine} toggleSwitch={setIsMine}/>
+        <Switch  title="Conta Fixa"  isEnabled={expanseFix} toggleSwitch={toggleSwitchExpanse}/>
+
       <Button title="Salvar" isLoading={isLoading}  />
       </Form>
     </Container>

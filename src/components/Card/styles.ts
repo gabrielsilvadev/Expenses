@@ -6,6 +6,7 @@ export const Container = styled(TouchableOpacity)`
   height: 100px;
   justify-content: center;
   padding: 8px;
+  elevation: 4px;
   align-items: center;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.COLORS.WHITE};

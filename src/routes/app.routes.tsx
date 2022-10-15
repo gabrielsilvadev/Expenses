@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from "@react-navigation/native";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View,  StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { Home } from "../screens/Home";
 import { NewExpenses } from "../screens/NewExpenses";
 import { User } from "../screens/User";
 import { ShowExpenses} from '../screens/ShowExpenses'
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-
+import {Wallet} from '../screens/Wallet'
+import {Pix} from '../screens/Pix'
 
 export function RootNavigator() {
 
@@ -17,7 +16,9 @@ export function RootNavigator() {
   return (
     <Stack.Navigator >
       <Stack.Screen name="Root" component={AppRoutes} options={{ headerShown: false }} />
-      <Stack.Screen name="ShowExpenses" component={ShowExpenses} options={{ headerShown: false }} />
+      <Stack.Screen name="ShowExpenses" component={ShowExpenses} options={{ headerShown: false,  }} />
+      <Stack.Screen name="Wallet" component={Wallet} options={{ headerShown: false }} />
+      <Stack.Screen name="Pix" component={Pix} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
@@ -26,7 +27,6 @@ function AppRoutes() {
   const Tab = createBottomTabNavigator();
   const [showPlus, setShowPlus] = useState(true);
   return (
-    <NavigationContainer independent={true}>
       <Tab.Navigator screenOptions={{tabBarShowLabel: false, 
       tabBarStyle:{
         backgroundColor: '#fff',
@@ -104,7 +104,6 @@ function AppRoutes() {
           })}
         />
       </Tab.Navigator>
-    </NavigationContainer>
   )
 }
 

@@ -1,13 +1,14 @@
-import { Pressable } from 'react-native'
+import {TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
-export type OrderStyleProps = {
-  status: 'open' | 'closed'
+export type ExpenseStyleProps = {
+  status: 'payment' | 'pending'
 }
 
-export const Container = styled(Pressable)`
+export const Container = styled(TouchableOpacity)`
   width: 100%;
   height: 94px;
+  elevation: 1px;
   flex-direction: row;
   overflow: hidden;
   margin-bottom: 16px;
@@ -26,11 +27,11 @@ export const Header = styled.View`
   flex-direction: row;
 `
 
-export const Status = styled.View<OrderStyleProps>`
+export const Status = styled.View<ExpenseStyleProps>`
   width: 10px;
   height: 94px;
   background-color: ${({ theme, status }) =>
-    status === 'open' ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY};
+    status === 'pending' ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY};
 `
 
 export const Title = styled.Text`
@@ -51,9 +52,14 @@ export const Footer = styled.View`
   justify-content: space-between;
   flex-direction: row;
 `
+export const LabelMany = styled.Text`
+  font-size: 18px;
+  color: ${({ theme }) => theme.COLORS.TEXT};
+  margin-left: 3px;
+`
 
 export const Label = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   color: ${({ theme }) => theme.COLORS.SUBTEXT};
   margin-left: 3px;
 `

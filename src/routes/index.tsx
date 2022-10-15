@@ -3,9 +3,9 @@ import { NavigationContainer,  DefaultTheme, DarkTheme } from '@react-navigation
 import LinkingConfiguration from '../routes/LinkingConfiguration'
 import { RootNavigator } from './app.routes';
 
-export function Routes({ colorScheme }: { colorScheme: ColorSchemeName }) {
+export function Routes({ colorScheme }) {
   return (
-    <NavigationContainer  linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer independent={true}  linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <RootNavigator/>
     </NavigationContainer>
   );

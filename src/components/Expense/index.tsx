@@ -11,43 +11,43 @@ import {
   Header,
   Info,
   Label,
-  OrderStyleProps,
+  LabelMany,
+  ExpenseStyleProps,
   Status,
   Title
 } from './styles'
-export type OrderProps = OrderStyleProps & {
+export type ExpenseProps = ExpenseStyleProps & {
   _id: string
-  patrimony: string
-  equipment: string
-  description: string
+  name: string
+  valor: string
+  fix: string
   created_at: Date
 }
 
 type Props = PressableProps & {
-  data: OrderProps
+  data: ExpenseProps
 }
 
-export function Order({ data, ...rest }: Props) {
+export function Expense({ data, ...rest }: Props) {
   const theme = useTheme()
 
   return (
-    <Container {...rest}>
+    <Container {...rest} onPress={()=>{}}>
       <Status status={data.status} />
 
       <Content>
         <Header>
-          <Title>{data.equipment}</Title>
+          <Title>{data.name}</Title>
           <MaterialIcons
-            name={data.status === 'open' ? 'hourglass-empty' : 'check-circle'}
+            name={data.status === 'pending' ? 'hourglass-empty' : 'check-circle'}
             size={24}
             color={
-              data.status === 'open'
+              data.status === 'pending'
                 ? theme.COLORS.SECONDARY
                 : theme.COLORS.PRIMARY
             }
           />
         </Header>
-
         <Footer>
           <Info>
             <MaterialIcons
@@ -59,12 +59,7 @@ export function Order({ data, ...rest }: Props) {
           </Info>
 
           <Info>
-            <MaterialIcons
-              name="my-location"
-              size={16}
-              color={theme.COLORS.SUBTEXT}
-            />
-            <Label>{data.patrimony}</Label>
+            <LabelMany>R$ {data.valor}</LabelMany>
           </Info>
         </Footer>
       </Content>

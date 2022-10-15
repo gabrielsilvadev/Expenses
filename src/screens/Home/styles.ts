@@ -6,7 +6,7 @@ import styled from 'styled-components/native'
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
+  background-color: #F4FFF7;
   padding: ${getStatusBarHeight() + 24}px 24px ${getBottomSpace() + 14}px;
 `
 
@@ -15,6 +15,7 @@ width: 100%;
 height: 55%;
 margin-top: 3%;
 border-radius: 12px;
+elevation: 4px;
 background-color: ${({ theme }) => theme.COLORS.WHITE};
 align-items: center;
 `
@@ -40,6 +41,6 @@ export const Cards = styled.View`
 flex: 1;
 justify-content: space-between;
 flex-direction: row;
-margin-top: 7%
+margin-top: 7%;
 backgroud-color: #fff
 `

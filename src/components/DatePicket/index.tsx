@@ -13,6 +13,7 @@ export function PicketInput({show, date,setShow,setOnChange,dateInput, ...rest }
       <TouchableOpacity onPress={() => setShow(!show)}>
         <Input
           editable={false}
+          returnKeyType='done'
           selectTextOnFocus={false}
           value={dateInput}
           placeholder="Selecione Data"
