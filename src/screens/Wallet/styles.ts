@@ -3,7 +3,6 @@ import { TouchableOpacity} from 'react-native'
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
-  background-color: #F4FFF7;
   padding: 24px;
 `
 

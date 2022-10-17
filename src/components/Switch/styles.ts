@@ -12,6 +12,7 @@ export const Switchs = styled.Switch`
 height: 56px;
 `
 export const Title = styled.Text`
+  width: 100%;
   font-size: 14px;
   font-weight: 600;
   color: ${({ theme }) => theme.COLORS.SUBTEXT};
