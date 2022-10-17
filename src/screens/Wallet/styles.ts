@@ -17,7 +17,6 @@ export const Header = styled.View`
 export const Button = styled(TouchableOpacity)`
   width: 48px;
   height: 48px;
-  elevation: 6;
   justify-content: center;
   padding-right: 3px;
   align-items: center;
@@ -64,7 +63,7 @@ export const Chart = styled.View`
 width: 100%;
 margin-top: 10%;
 padding-left: 23px;
-elevation: 5px;
+border-color: ${({ theme }) => theme.COLORS.SUBTEXT};
 border-radius: 12px;
 background-color: ${({ theme }) => theme.COLORS.WHITE};
 align-items: center;
@@ -73,7 +72,6 @@ align-items: center;
 export const CardWallet = styled.View`
 width: 100%;
 border-radius: 12px;
-elevation: 8px;
 background-color: ${({ theme }) => theme.COLORS.WHITE};
 align-items: center;
 `

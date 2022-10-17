@@ -25,7 +25,7 @@ export function ShowExpenses() {
       <Icon name="chevron-left" size={30} color="#fff"  />
       </Button>
       <Title>Contas</Title>
-      <View style={{marginRight: '8%'}}/>
+      <View style={{marginRight: '9%'}}/>
       </Header>
       <ListExpenses  />
     </Container>

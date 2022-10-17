@@ -38,6 +38,8 @@ export function NewExpenses() {
   function handleBack() {
     navigation.goBack()
   }
+  function saveExpense(){
+  }
 
   return (
     <Container>

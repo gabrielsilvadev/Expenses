@@ -17,7 +17,6 @@ export const Header = styled.View`
 export const Button = styled(TouchableOpacity)`
   width: 48px;
   height: 48px;
-  elevation: 6;
   justify-content: center;
   padding-right: 3px;
   align-items: center;
