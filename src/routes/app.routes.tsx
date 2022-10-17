@@ -29,12 +29,14 @@ function AppRoutes() {
   return (
       <Tab.Navigator screenOptions={{tabBarShowLabel: false, 
       tabBarStyle:{
+        flex: 1,
         backgroundColor: '#fff',
         position: 'absolute',
-        bottom: 15,
         alignContent: 'center',
         width: 327,
         left: 40,
+        alignItems: 'center',
+        padding: '3%',
         height: 65,
         borderRadius: 100
       }
@@ -52,7 +54,7 @@ function AppRoutes() {
             title: '',
             tabBarActiveTintColor: '#27AE60',
             tabBarIcon: ({ color }) => (
-              <Icon name="home" size={26} color={color} />
+              <Icon name="home" size={26} color={color}  />
             )
           })}
         />
