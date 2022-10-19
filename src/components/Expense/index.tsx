@@ -3,6 +3,7 @@ import moment from 'moment'
 import React from 'react'
 import { PressableProps } from 'react-native'
 import { useTheme } from 'styled-components/native'
+import { TExpense } from '../../services/expense/@types/expense'
 
 import {
   Container,
@@ -12,37 +13,27 @@ import {
   Info,
   Label,
   LabelMany,
-  ExpenseStyleProps,
   Status,
   Title
 } from './styles'
-export type ExpenseProps = ExpenseStyleProps & {
-  _id: string
-  name: string
-  valor: string
-  fix: string
-  created_at: Date
-}
 
 type Props = PressableProps & {
-  data: ExpenseProps
+  data: TExpense
 }
 
 export function Expense({ data, ...rest }: Props) {
   const theme = useTheme()
-
   return (
-    <Container {...rest} onPress={()=>{}}>
+    <Container {...rest} onPress={() => { }}>
       <Status status={data.status} />
-
       <Content>
         <Header>
           <Title>{data.name}</Title>
           <MaterialIcons
-            name={data.status === 'pending' ? 'hourglass-empty' : 'check-circle'}
+            name={data.status === 'active' ? 'hourglass-empty' : 'check-circle'}
             size={24}
             color={
-              data.status === 'pending'
+              data.status === 'active'
                 ? theme.COLORS.SECONDARY
                 : theme.COLORS.PRIMARY
             }
@@ -55,11 +46,11 @@ export function Expense({ data, ...rest }: Props) {
               size={16}
               color={theme.COLORS.SUBTEXT}
             />
-            <Label>{moment(data.created_at).format('DD/MM - HH:MM')}</Label>
+            <Label>{moment(data.due_date).format('DD/MM - HH:MM')}</Label>
           </Info>
 
           <Info>
-            <LabelMany>R$ {data.valor}</LabelMany>
+            <LabelMany>R$ {data.value}</LabelMany>
           </Info>
         </Footer>
       </Content>

@@ -1,26 +1,37 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FlatList } from 'react-native'
 
 import { Load } from '../Load';
 import { Filters } from '../Filters';
-import { Expense, ExpenseProps } from '../Expense';
+import { Expense } from '../Expense';
 
-import { Container,Counter,Header,Title } from './styles';
+import { Container } from './styles';
+import { TExpense } from '../../services/expense/@types/expense';
+import getExpensies from '../../services/expense/getExpensies';
 
 export function ListExpenses() {
   const [isLoading, setIsLoading] = useState(false);
-  const [orders, setOrders] = useState<ExpenseProps[]>([{id: 4,name: 'Conta de Agua', valor: '40'},{id:8,name: 'Conta de Agua', valor: '40'},{id:9,name: 'Conta de Agua', valor: '40'},{id:23,name: 'Conta de Agua', valor: '40'},{id:75,name: 'Conta de Agua', valor: '40'},]);
-  const [status, setStatus] = useState('pending');
+  const [status, setStatus] = useState('pago');
+  const [expensies, setExpensies] = useState<TExpense[]>([])
+
+  async function fetchExpensies() {
+    const { data } = await getExpensies()
+    setExpensies(data.expensies)
+  }
+
+  useEffect(() => {
+    fetchExpensies()
+  }, [])
 
   return (
     <Container>
-      <Filters onFilter={setStatus} />
+      <Filters onFilter={setStatus} status={''} />
       {isLoading ? (
         <Load />
       ) : (
         <FlatList
-          data={orders}
-          keyExtractor={(item) => item.id}
+          data={expensies}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => <Expense data={item} />}
           contentContainerStyle={{ paddingBottom: 100 }}
           showsVerticalScrollIndicator={false}

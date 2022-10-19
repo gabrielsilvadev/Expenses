@@ -26,3 +26,30 @@ export const Title = styled.Text`
 export const Form = styled.View`
   flex: 1;
 `
+
+export const RNPickerStyle = {
+  viewContainer: {
+    borderWidth: 1,
+    paddingLeft: 16,
+    minHeight: 42,
+    justifyContent: 'center',
+    borderColor: '#C5CADA',
+    backgroundColor: '#fff',
+    borderRadius: 10
+  }
+}
+
+export const ErrorMessage = styled.Text`
+  width: 100%;
+  height: auto;
+
+  padding: 16px;
+  margin-bottom: 16px;
+  
+  border: 1px solid #98242C70;
+  border-radius: 5px;
+
+  background-color: #F8D7DA;
+  color: #78242C;
+  font-size: 12px;
+`

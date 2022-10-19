@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {View} from 'react-native'
-import {ListExpenses} from '../../components/Expenses'
+import { View } from 'react-native'
+import { ListExpenses } from '../../components/Expenses'
 import Icon from 'react-native-vector-icons/Feather'
 
-import {Header, Container, Title, Button} from './styles'
+import { Header, Container, Title, Button } from './styles'
+import getExpensies from '../../services/expense/getExpensies';
+import { TExpense } from '../../services/expense/@types/expense';
 
 export function ShowExpenses() {
   const [isLoading, setIsLoading] = useState(false)
@@ -21,13 +23,13 @@ export function ShowExpenses() {
   return (
     <Container>
       <Header>
-      <Button  onPress={handleBack}>
-      <Icon name="chevron-left" size={30} color="#fff"  />
-      </Button>
-      <Title>Contas</Title>
-      <View style={{marginRight: '9%'}}/>
+        <Button onPress={handleBack}>
+          <Icon name="chevron-left" size={30} color="#fff" />
+        </Button>
+        <Title>Contas</Title>
+        <View style={{ marginRight: '9%' }} />
       </Header>
-      <ListExpenses  />
+      <ListExpenses />
     </Container>
   );
 }
