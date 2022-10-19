@@ -14,7 +14,6 @@ width: 100%;
 height: 55%;
 margin-top: 3%;
 border-radius: 12px;
-elevation: 4px;
 background-color: ${({ theme }) => theme.COLORS.WHITE};
 align-items: center;
 `

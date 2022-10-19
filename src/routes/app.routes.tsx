@@ -34,9 +34,9 @@ function AppRoutes() {
         position: 'absolute',
         alignContent: 'center',
         width: 327,
+        bottom: 30,
         left: 40,
         alignItems: 'center',
-        padding: '3%',
         height: 65,
         borderRadius: 100
       }

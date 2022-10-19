@@ -8,7 +8,6 @@ export type ExpenseStyleProps = {
 export const Container = styled(TouchableOpacity)`
   width: 100%;
   height: 94px;
-  elevation: 1px;
   flex-direction: row;
   overflow: hidden;
   margin-bottom: 16px;
