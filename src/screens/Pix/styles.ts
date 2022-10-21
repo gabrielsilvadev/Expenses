@@ -1,5 +1,5 @@
+import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
-import { TouchableOpacity} from 'react-native'
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
@@ -33,10 +33,10 @@ export const Info = styled.View`
   align-items: center;
 `
 export const FooterCard = styled.View`
-width: 100%;
-padding: 10px;
-justify-content: space-between;
-flex-direction: row;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+  flex-direction: row;
 `
 export const Footer = styled.View`
   width: 100%;
@@ -49,8 +49,8 @@ export const LabelMany = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT};
 `
 export const ScrollView = styled.ScrollView`
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 `
 
 export const Label = styled.Text`
@@ -59,19 +59,19 @@ export const Label = styled.Text`
 `
 
 export const Chart = styled.View`
-width: 100%;
-margin-top: 10%;
-padding-left: 23px;
-border-radius: 12px;
-background-color: ${({ theme }) => theme.COLORS.WHITE};
-align-items: center;
+  width: 100%;
+  margin-top: 10%;
+  padding-left: 23px;
+  border-radius: 12px;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  align-items: center;
 `
 
 export const CardWallet = styled.View`
-width: 100%;
-border-radius: 12px;
-background-color: ${({ theme }) => theme.COLORS.WHITE};
-align-items: center;
+  width: 100%;
+  border-radius: 12px;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  align-items: center;
 `
 export const Title = styled.Text`
   font-size: 24px;

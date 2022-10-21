@@ -1,4 +1,4 @@
-export type HTTP_METHODS = "get" | "post" | "patch" | "put" | "delete"
+export type HTTP_METHODS = 'get' | 'post' | 'patch' | 'put' | 'delete'
 
 export interface IResponse<T> {
   status: number
@@ -6,8 +6,8 @@ export interface IResponse<T> {
 }
 
 export interface IClient {
-  baseURL?: string,
-  token?: string,
+  baseURL?: string
+  token?: string
   methods: HTTP_METHODS[]
   get<T>(url: string): Promise<IResponse<T>>
   post<T>(url: string, payload: unknown): Promise<IResponse<T>>
@@ -15,4 +15,3 @@ export interface IClient {
   put<T>(url: string, payload: unknown): Promise<IResponse<T>>
   delete<T>(url: string): Promise<IResponse<T>>
 }
-

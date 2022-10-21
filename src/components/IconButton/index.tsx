@@ -14,7 +14,7 @@ export function IconButton({ icon, ...rest }: Props) {
 
   return (
     <Container {...rest}>
-      <Feather name={icon} size={20}  />
+      <Feather name={icon} size={20} />
     </Container>
   )
 }

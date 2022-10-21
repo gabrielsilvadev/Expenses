@@ -1,9 +1,9 @@
-import { ObjectSchema } from "yup";
-import { ValidateOptions } from "yup/lib/types";
+import { ObjectSchema } from 'yup'
+import { ValidateOptions } from 'yup/lib/types'
 
 const DEFAULT_OPTIONS = {
-  abortEarly: true,
-};
+  abortEarly: true
+}
 
 function validateSchema(
   schema: ObjectSchema<any>,
@@ -11,12 +11,12 @@ function validateSchema(
   options: ValidateOptions = DEFAULT_OPTIONS
 ) {
   try {
-    schema.validateSync(payload, options);
-    return;
+    schema.validateSync(payload, options)
+    return
   } catch (e) {
-    const [error] = e.errors;
-    return error;
+    const [error] = e.errors
+    return error
   }
-};
+}
 
-export default validateSchema;
+export default validateSchema

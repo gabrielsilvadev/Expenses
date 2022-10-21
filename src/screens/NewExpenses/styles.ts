@@ -11,10 +11,10 @@ export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
   margin: 20px 0;
-`;
+`
 
 export const Switch = styled.Switch`
-width: 100%;
+  width: 100%;
 `
 export const Title = styled.Text`
   font-size: 24px;
@@ -45,11 +45,11 @@ export const ErrorMessage = styled.Text`
 
   padding: 16px;
   margin-bottom: 16px;
-  
-  border: 1px solid #98242C70;
+
+  border: 1px solid #98242c70;
   border-radius: 5px;
 
-  background-color: #F8D7DA;
-  color: #78242C;
+  background-color: #f8d7da;
+  color: #78242c;
   font-size: 12px;
 `

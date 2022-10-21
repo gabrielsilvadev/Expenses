@@ -1,4 +1,4 @@
 export type TResponse = {
-  status_code: number,
+  status_code: number
   success: boolean
 }

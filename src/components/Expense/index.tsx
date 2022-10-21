@@ -3,8 +3,8 @@ import moment from 'moment'
 import React from 'react'
 import { PressableProps } from 'react-native'
 import { useTheme } from 'styled-components/native'
-import { TExpense } from '../../services/expense/@types/expense'
 
+import { TExpense } from '../../services/expense/@types/expense'
 import {
   Container,
   Content,
@@ -24,7 +24,7 @@ type Props = PressableProps & {
 export function Expense({ data, ...rest }: Props) {
   const theme = useTheme()
   return (
-    <Container {...rest} onPress={() => { }}>
+    <Container {...rest} onPress={() => {}}>
       <Status status={data.status} />
       <Content>
         <Header>

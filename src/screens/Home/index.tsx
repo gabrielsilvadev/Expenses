@@ -17,10 +17,13 @@ export function Home() {
   function toGoExpenses() {
     navigation.navigate('ShowExpenses')
   }
-  function toGoWallet(){
+  function toGoLogin() {
+    navigation.navigate('Login')
+  }
+  function toGoWallet() {
     navigation.navigate('Wallet')
   }
-  function toGoPix(){
+  function toGoPix() {
     navigation.navigate('Pix')
   }
 
@@ -28,41 +31,37 @@ export function Home() {
     <Container>
       <Header />
       <Chart>
-      <Title>R$ 4000</Title>
-      <VictoryPie
-      height={350}
-      cornerRadius={16}
-      data={data}
-      animate={
-        {
-          duration: 2000,
-          easing: 'elasticOut'
-        }
-      }
-      style={{
-        labels:{
-          fill: '#fff',
-        }
-      }}
-      colorScale={data.map(c => c.color)}
-      labelComponent={
-       <VictoryTooltip
-       renderInPortal={false}
-       flyoutStyle={
-        {
-          stroke: 0,
-          fill: ({datum})=> datum.color
-        }
-       }
-       />
-      }
-      innerRadius={80}
-      />
+        <Title>R$ 4000</Title>
+        <VictoryPie
+          height={350}
+          cornerRadius={16}
+          data={data}
+          animate={{
+            duration: 2000,
+            easing: 'elasticOut'
+          }}
+          style={{
+            labels: {
+              fill: '#fff'
+            }
+          }}
+          colorScale={data.map((c) => c.color)}
+          labelComponent={
+            <VictoryTooltip
+              renderInPortal={false}
+              flyoutStyle={{
+                stroke: 0,
+                fill: ({ datum }) => datum.color
+              }}
+            />
+          }
+          innerRadius={80}
+        />
       </Chart>
       <Cards>
-      <Card text="Pix" icon='send' />
-      <Card text="Carteira" icon='cash' onPress={()=> toGoWallet()}/>
-      <Card text="Contas" icon='bills' onPress={()=>toGoExpenses()}/>
+        <Card text="Pix" icon="send" onPress={() => toGoLogin()} />
+        <Card text="Carteira" icon="cash" onPress={() => toGoWallet()} />
+        <Card text="Contas" icon="bills" onPress={() => toGoExpenses()} />
       </Cards>
     </Container>
   )

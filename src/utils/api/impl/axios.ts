@@ -1,17 +1,17 @@
-import { Axios, AxiosRequestConfig } from "axios";
+import { Axios, AxiosRequestConfig } from 'axios'
 
-import { IClient, HTTP_METHODS } from "../@types/client";
+import { HTTP_METHODS, IClient } from '../@types/client'
 
 class AxiosClient extends Axios implements IClient {
-  baseURL: string;
-  token?: string;
-  methods: HTTP_METHODS[];
+  baseURL: string
+  token?: string
+  methods: HTTP_METHODS[]
 
   constructor(baseURL: string, token?: string) {
     const _config: AxiosRequestConfig = {
       baseURL,
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${token}`
       },
       transformResponse: [(res) => JSON.parse(res)]
     }

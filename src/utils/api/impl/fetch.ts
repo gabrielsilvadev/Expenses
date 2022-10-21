@@ -1,23 +1,27 @@
-import { IClient, HTTP_METHODS, IResponse } from "../@types/client";
+import { HTTP_METHODS, IClient, IResponse } from '../@types/client'
 
 class FetchClient implements IClient {
-  methods: HTTP_METHODS[];
-  token: string;
-  baseURL: string;
+  methods: HTTP_METHODS[]
+  token: string
+  baseURL: string
 
   constructor(baseURL: string, token?: string) {
     this.baseURL = baseURL
     this.token = token
   }
 
-  async handleRequest<T>(url: string, method: string, body?: unknown): Promise<IResponse<T>> {
+  async handleRequest<T>(
+    url: string,
+    method: string,
+    body?: unknown
+  ): Promise<IResponse<T>> {
     const config: RequestInit = {
       method: method,
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         authorization: `Bearer ${this.token}`
-      },
+      }
     }
     if (body) config.body = JSON.stringify(body)
 
@@ -31,23 +35,23 @@ class FetchClient implements IClient {
   }
 
   async get<T>(url: string): Promise<IResponse<T>> {
-    return await this.handleRequest<T>(url, "get")
+    return await this.handleRequest<T>(url, 'get')
   }
 
   async post<T>(url: string, payload: unknown): Promise<IResponse<T>> {
-    return await this.handleRequest<T>(url, "post", payload)
+    return await this.handleRequest<T>(url, 'post', payload)
   }
 
   async patch<T>(url: string, payload: unknown): Promise<IResponse<T>> {
-    return await this.handleRequest<T>(url, "patch", payload)
+    return await this.handleRequest<T>(url, 'patch', payload)
   }
 
   async put<T>(url: string, payload: unknown): Promise<IResponse<T>> {
-    return await this.handleRequest<T>(url, "put", payload)
+    return await this.handleRequest<T>(url, 'put', payload)
   }
 
   async delete<T>(url: string): Promise<IResponse<T>> {
-    return await this.handleRequest<T>(url, "delete")
+    return await this.handleRequest<T>(url, 'delete')
   }
 }
 

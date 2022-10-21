@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useState } from 'react'
 import { View } from 'react-native'
-import { ListExpenses } from '../../components/Expenses'
 import Icon from 'react-native-vector-icons/Feather'
 
-import { Header, Container, Title, Button } from './styles'
-import getExpensies from '../../services/expense/getExpensies';
-import { TExpense } from '../../services/expense/@types/expense';
+import { ListExpenses } from '../../components/Expenses'
+import { TExpense } from '../../services/expense/@types/expense'
+import getExpensies from '../../services/expense/getExpensies'
+import { Button, Container, Header, Title } from './styles'
 
 export function ShowExpenses() {
   const [isLoading, setIsLoading] = useState(false)
@@ -31,5 +31,5 @@ export function ShowExpenses() {
       </Header>
       <ListExpenses />
     </Container>
-  );
+  )
 }
