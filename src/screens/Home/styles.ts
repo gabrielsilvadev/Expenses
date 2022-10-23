@@ -26,7 +26,7 @@ export const View = styled.View`
 
 export const Title = styled.Text`
   flex: 1;
-  margin-top: 43%
+  margin-top: 48%
   font-size: 30px;
   text-align: center;
   position: absolute;

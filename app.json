@@ -1,11 +1,19 @@
 {
   "expo": {
-    "name": "realmdb-app",
-    "slug": "realmdb-app",
+    "name": "finances",
+    "slug": "finances",
     "version": "1.0.0",
     "sdkVersion": "45.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0685a965-7868-4df0-b524-77a6b8325fe7"
+      }
+    },
+    "android": {
+      "package": "com.sr.lobak.finances"
+    }
   }
 }

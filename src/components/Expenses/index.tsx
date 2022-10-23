@@ -10,21 +10,22 @@ import { Container } from './styles'
 
 export function ListExpenses() {
   const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState('pago')
+  const [status, setStatus] = useState('pending')
   const [expensies, setExpensies] = useState<TExpense[]>([])
 
   async function fetchExpensies() {
+    setIsLoading(true)
     const { data } = await getExpensies()
     setExpensies(data.expensies)
+    setIsLoading(false)
   }
-
   useEffect(() => {
     fetchExpensies()
   }, [])
 
   return (
     <Container>
-      <Filters onFilter={setStatus} status={''} />
+      <Filters onFilter={setStatus} status={status} />
       {isLoading ? (
         <Load />
       ) : (

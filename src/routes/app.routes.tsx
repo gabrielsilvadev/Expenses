@@ -17,13 +17,13 @@ export function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Root"
-        component={Login}
+        name="Home"
+        component={AppRoutes}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Home"
-        component={AppRoutes}
+        name="Root"
+        component={Login}
         options={{ headerShown: false }}
       />
       <Stack.Screen

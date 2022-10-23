@@ -2,7 +2,7 @@ import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
 export type ExpenseStyleProps = {
-  status: 'payment' | 'pending'
+  status: 'inactive' | 'active'
 }
 
 export const Container = styled(TouchableOpacity)`
@@ -30,7 +30,7 @@ export const Status = styled.View<ExpenseStyleProps>`
   width: 10px;
   height: 94px;
   background-color: ${({ theme, status }) =>
-    status === 'pending' ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY};
+    status === 'active' ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY};
 `
 
 export const Title = styled.Text`

@@ -8,7 +8,12 @@ export function Load() {
   return (
     <ActivityIndicator
       color={theme.COLORS.PRIMARY}
-      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+      size={60}
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
     />
   )
 }

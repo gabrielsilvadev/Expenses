@@ -10,9 +10,9 @@ import { Cards, Chart, Container, Title } from './styles'
 export function Home() {
   const navigation = useNavigation()
   const [data, setData] = useState([
-    { x: 'Cats', y: 35, color: 'blue' },
-    { x: 'Dogs', y: 40, color: 'red' },
-    { x: 'Birds', y: 55, color: 'green' }
+    { x: 'conta de luz', y: 35, color: '#267365' },
+    { x: 'conta agua', y: 70, color: '#F2CB05' },
+    { x: 'internet', y: 55, color: '#F29F05' }
   ])
   function toGoExpenses() {
     navigation.navigate('ShowExpenses')
@@ -26,6 +26,9 @@ export function Home() {
   function toGoPix() {
     navigation.navigate('Pix')
   }
+  function ativeToolTip() {
+    setTimeout()
+  }
 
   return (
     <Container>
@@ -33,11 +36,11 @@ export function Home() {
       <Chart>
         <Title>R$ 4000</Title>
         <VictoryPie
-          height={350}
-          cornerRadius={16}
+          height={370}
+          cornerRadius={18}
           data={data}
           animate={{
-            duration: 2000,
+            duration: 4000,
             easing: 'elasticOut'
           }}
           style={{
@@ -51,7 +54,10 @@ export function Home() {
               renderInPortal={false}
               flyoutStyle={{
                 stroke: 0,
-                fill: ({ datum }) => datum.color
+                fill: ({ datum }) => datum.color,
+                alignContent: 'center',
+                textAlign: 'center',
+                padding: '7%'
               }}
             />
           }

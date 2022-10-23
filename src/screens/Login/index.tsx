@@ -34,12 +34,12 @@ export function Login() {
         <Footer>
           <SubTitle>Ola, Seja Bem Vindo</SubTitle>
           <InputLogin style={{ marginTop: '20%' }} placeholder="Email" />
-          <Button style={{ marginTop: '4%' }}>
+          <Button>
             <Title>Login</Title>
           </Button>
           <ButtonCadastro onPress={() => setLogin(!login)}>
             <Form>
-              <TitleCadastro style={{ marginLeft: '65%', marginTop: '17%' }}>
+              <TitleCadastro style={{ marginLeft: '65%', marginTop: '25%' }}>
                 Cadastre-se
               </TitleCadastro>
             </Form>
@@ -56,9 +56,7 @@ export function Login() {
           </Button>
           <ButtonCadastro onPress={() => setLogin(!login)}>
             <Form>
-              <TitleCadastro style={{ marginLeft: '76%', marginTop: '1%' }}>
-                Login
-              </TitleCadastro>
+              <TitleCadastro style={{ marginLeft: '76%' }}>Login</TitleCadastro>
             </Form>
           </ButtonCadastro>
         </Footer>

@@ -24,15 +24,15 @@ export const Header = styled.View`
   margin: 20px 0;
 `
 export const Image = styled.Image`
-  width: 70%;
+  width: 100%;
   margin-top: 2%;
   align-self: center;
-  height: 44%;
+  height: 50%;
 `
 export const InputLogin = styled(Input)`
-  width: 90%;
+  width: 100%;
   margin-top: 2%;
-  height: 17%;
+  height: 50px;
 `
 export const Text = styled.Text`
   font-size: 18px;
@@ -69,7 +69,7 @@ export const Info = styled.View`
 
 export const Footer = styled.View`
   width: 100%;
-  height: 50%;
+  height: 340px;
   padding: 17px;
   margin-top: 5%;
   border-radius: 20px;
@@ -91,4 +91,7 @@ export const Title = styled.Text`
 
 export const Form = styled.View`
   flex: 1;
+  justify-content: space-between;
+  margin-top: 1%;
+  flex-direction: column;
 `
