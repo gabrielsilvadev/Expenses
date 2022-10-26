@@ -10,7 +10,6 @@ import {
   Image,
   InputLogin,
   SubTitle,
-  Text,
   Title,
   TitleCadastro
 } from './styles'

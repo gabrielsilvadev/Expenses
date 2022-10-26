@@ -9,6 +9,7 @@ import { Login } from '../screens/Login'
 import { NewExpenses } from '../screens/NewExpenses'
 import { Pix } from '../screens/Pix'
 import { ShowExpenses } from '../screens/ShowExpenses'
+import { Splash } from '../screens/Splash'
 import { User } from '../screens/User'
 import { Wallet } from '../screens/Wallet'
 
@@ -17,13 +18,19 @@ export function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
-        component={AppRoutes}
+        name="Splash"
+        component={Splash}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Root"
+        name="Login"
         component={Login}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Home"
+        component={AppRoutes}
         options={{ headerShown: false }}
       />
       <Stack.Screen
