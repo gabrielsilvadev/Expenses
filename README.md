@@ -6,6 +6,8 @@ Este é um projeto de colaboração construído para fins pessoais e acadêmicos
 
 Ainda em estádio de desenvolvimento, o Expenses é um organizador de dívidas OpenSource, destinado a todos aqueles que querem melhorar a forma com que organizam suas contas, sejam elas pequenas ou grandes. O projeto conterá toda a parte de cadastro de contas, contando com uma gráfico que mostrará a relação entre as mesmas, uma listagem para ter uma visão geral de todas as contas e uma aba de perfil, onde o usuário poderá ver informações gerais sobre sí.
 
+
+
 ## Tecnologias
 
 - [CSS](https://www.w3schools.com/css/)
