@@ -16,7 +16,7 @@ const createExpenseSchema = Yup.object().shape({
     .required(requiredMessage('Valor'))
     .min(0.000000001, minMessage('Valor', 0))
     .typeError(typeErrorMessage('Valor', 'numerico')),
-  due_date: Yup.string().required(requiredMessage('Valor')),
+  due_date: Yup.string().required(requiredMessage('Data')),
   is_mine: Yup.boolean().required(requiredMessage('É meu')),
   paid: Yup.boolean().required(requiredMessage('Está pago?'))
 })

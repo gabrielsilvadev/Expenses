@@ -19,12 +19,14 @@ import {
   Form,
   Header,
   RNPickerStyle,
+  SuccessMessage,
   Title
 } from './styles'
 
 export function NewExpenses() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(undefined)
+  const [success, setSuccess] = useState(undefined)
   const [date, setDate] = useState(new Date())
   const [show, setShow] = useState(false)
   const [dateInput, setDateInput] = useState('')
@@ -41,7 +43,7 @@ export function NewExpenses() {
     const currentDate = selectedDate || date
     setShow(false)
     setDate(currentDate)
-    setDateInput(moment(currentDate).format('DD/MM/YY').toString())
+    setDateInput(moment(currentDate).format('DD/MM/YYYY').toString())
   }
 
   function resetFields() {
@@ -49,6 +51,7 @@ export function NewExpenses() {
     setIsMine(false)
     setName('')
     setValue('')
+    setDateInput('')
     setColor('')
   }
 
@@ -65,16 +68,17 @@ export function NewExpenses() {
       color,
       name,
       value,
-      due_date: formatDateToAPI(new Date()),
+      due_date: dateInput,
       is_mine: isMine,
-      paid: isPaid,
-      profile_id: 1
+      paid: isPaid
     }
 
-    if (!validateExpense(expense))
-      await createExpense(expense).finally(() => {
+    if (!validateExpense(expense)) {
+      const { data } = await createExpense(expense).finally(() => {
         resetFields()
       })
+      setSuccess(data.success)
+    }
   }
 
   return (
@@ -83,6 +87,7 @@ export function NewExpenses() {
         <Title>Nova Dispesa</Title>
       </Header>
       {error && <ErrorMessage>{error}</ErrorMessage>}
+      {success && <SuccessMessage>Dispesa salva com sucesso</SuccessMessage>}
       <Form>
         <Input placeholder="Descrição" value={name} onChangeText={setName} />
         <Input

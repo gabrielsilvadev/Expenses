@@ -4,6 +4,5 @@ export interface ICreateExpense {
   due_date: string
   is_mine: boolean
   paid: boolean
-  profile_id: number
   color: string
 }

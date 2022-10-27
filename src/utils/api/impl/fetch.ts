@@ -1,3 +1,4 @@
+import auth from '../../auth'
 import { HTTP_METHODS, IClient, IResponse } from '../@types/client'
 
 class FetchClient implements IClient {
@@ -20,7 +21,7 @@ class FetchClient implements IClient {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        authorization: `Bearer ${this.token}`
+        authorization: `Bearer ${auth.access_token}`
       }
     }
     if (body) config.body = JSON.stringify(body)

@@ -38,18 +38,25 @@ export const RNPickerStyle = {
     borderRadius: 10
   }
 }
-
-export const ErrorMessage = styled.Text`
+const BaseMessage = styled.Text`
   width: 100%;
   height: auto;
 
   padding: 16px;
   margin-bottom: 16px;
 
-  border: 1px solid #98242c70;
   border-radius: 5px;
 
+  font-size: 12px;
+`
+export const ErrorMessage = styled(BaseMessage)`
+  border: 1px solid #98242c70;
   background-color: #f8d7da;
   color: #78242c;
-  font-size: 12px;
+`
+
+export const SuccessMessage = styled(BaseMessage)`
+  border: 1px solid ${({ theme }) => theme.COLORS.BORDER};
+  background-color: #d4edda;
+  color: ${({ theme }) => theme.COLORS.PRIMARY};
 `

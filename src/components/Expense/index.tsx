@@ -1,5 +1,4 @@
 import { MaterialIcons } from '@expo/vector-icons'
-import moment from 'moment'
 import React from 'react'
 import { PressableProps } from 'react-native'
 import { useTheme } from 'styled-components/native'
@@ -25,18 +24,14 @@ export function Expense({ data, ...rest }: Props) {
   const theme = useTheme()
   return (
     <Container {...rest} onPress={() => {}}>
-      <Status status={data.status} />
+      <Status paid={data.paid} />
       <Content>
         <Header>
           <Title>{data.name}</Title>
           <MaterialIcons
-            name={data.status === 'active' ? 'hourglass-empty' : 'check-circle'}
+            name={!data.paid ? 'hourglass-empty' : 'check-circle'}
             size={24}
-            color={
-              data.status === 'active'
-                ? theme.COLORS.SECONDARY
-                : theme.COLORS.PRIMARY
-            }
+            color={!data.paid ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY}
           />
         </Header>
         <Footer>
@@ -46,7 +41,7 @@ export function Expense({ data, ...rest }: Props) {
               size={16}
               color={theme.COLORS.SUBTEXT}
             />
-            <Label>{moment(data.due_date).format('DD/MM - HH:MM')}</Label>
+            <Label>{data.due_date}</Label>
           </Info>
 
           <Info>

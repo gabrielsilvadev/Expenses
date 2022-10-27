@@ -19,13 +19,13 @@ export function Filters({ onFilter, status }: Props) {
         <Filter
           title="Pendentes"
           backgroundColor={theme.COLORS.SECONDARY}
-          onPress={() => onFilter('pending')}
+          onPress={() => onFilter('?paid__eq=0')}
         />
 
         <Filter
           title="Pagos"
           backgroundColor={theme.COLORS.PRIMARY}
-          onPress={() => onFilter('payment')}
+          onPress={() => onFilter('?paid__eq=1')}
         />
         <RNPickerSelect
           onValueChange={() => {}}

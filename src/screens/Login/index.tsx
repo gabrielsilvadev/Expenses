@@ -1,6 +1,8 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 
+import performLogin from '../../services/auth/login'
+import auth from '../../utils/auth'
 import {
   Button,
   ButtonCadastro,
@@ -18,8 +20,19 @@ export function Login() {
   const navigation = useNavigation()
   const [login, setLogin] = useState(true)
 
+  const [email, setEmail] = useState('')
+
   function handleBack() {
     navigation.goBack()
+  }
+
+  async function handleLogin() {
+    const { data } = await performLogin(email)
+    if (data.success) {
+      auth.access_token = data.auth.access_token
+      auth.refresh_token = data.auth.refresh_token
+      navigation.navigate('Home')
+    }
   }
 
   const image = {
@@ -32,8 +45,14 @@ export function Login() {
       {login ? (
         <Footer>
           <SubTitle>Ola, Seja Bem Vindo</SubTitle>
-          <InputLogin style={{ marginTop: '20%' }} placeholder="Email" />
-          <Button>
+          <InputLogin
+            style={{ marginTop: '20%' }}
+            placeholder="Email"
+            keyboardType="email-address"
+            onChangeText={setEmail}
+            value={email}
+          />
+          <Button onPress={() => handleLogin()}>
             <Title>Login</Title>
           </Button>
           <ButtonCadastro onPress={() => setLogin(!login)}>

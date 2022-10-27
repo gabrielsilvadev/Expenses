@@ -10,15 +10,20 @@ import { Container } from './styles'
 
 export function ListExpenses() {
   const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState('pending')
+  const [status, setStatus] = useState('')
   const [expensies, setExpensies] = useState<TExpense[]>([])
 
-  async function fetchExpensies() {
+  async function fetchExpensies(query = '') {
     setIsLoading(true)
-    const { data } = await getExpensies()
+    const { data } = await getExpensies(query)
     setExpensies(data.expensies)
     setIsLoading(false)
   }
+
+  useEffect(() => {
+    fetchExpensies(status)
+  }, [status])
+
   useEffect(() => {
     fetchExpensies()
   }, [])
