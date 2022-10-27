@@ -1,6 +1,5 @@
 import { Axios, AxiosRequestConfig } from 'axios'
 
-import auth from '../../auth'
 import { HTTP_METHODS, IClient } from '../@types/client'
 
 class AxiosClient extends Axios implements IClient {
@@ -16,6 +15,10 @@ class AxiosClient extends Axios implements IClient {
     super(_config)
 
     this.baseURL = baseURL
+  }
+
+  updateAuthToken(_token: string) {
+    this.token = _token
   }
 }
 

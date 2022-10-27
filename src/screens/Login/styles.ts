@@ -2,6 +2,7 @@ import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Input } from '../../components/Input'
+
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
@@ -23,43 +24,17 @@ export const Header = styled.View`
   justify-content: space-between;
   margin: 20px 0;
 `
+
 export const Image = styled.Image`
   width: 100%;
   margin-top: 2%;
   align-self: center;
   height: 50%;
 `
-export const InputLogin = styled(Input)`
-  width: 100%;
-  margin-top: 2%;
-  height: 50px;
-`
+
 export const Text = styled.Text`
   font-size: 18px;
   color: ${({ theme }) => theme.COLORS.TEXT};
-`
-
-export const Button = styled(TouchableOpacity)`
-  width: 48%;
-  height: 15%;
-  justify-content: center;
-  padding-right: 3px;
-  align-items: center;
-  border-radius: 10px;
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
-`
-export const ButtonCadastro = styled(TouchableOpacity)`
-  justify-content: center;
-  align-items: center;
-`
-export const TitleCadastro = styled.Text`
-  font-size: 17px;
-  color: ${({ theme }) => theme.COLORS.PRIMARY};
-`
-
-export const SubTitle = styled.Text`
-  font-size: 18px;
-  color: ${({ theme }) => theme.COLORS.SUBTEXT};
 `
 
 export const Info = styled.View`
@@ -69,29 +44,67 @@ export const Info = styled.View`
 
 export const Footer = styled.View`
   width: 100%;
-  height: 340px;
-  padding: 17px;
-  margin-top: 5%;
-  border-radius: 20px;
-  align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
-  justify-content: space-between;
-  flex-direction: column;
-`
-export const Label = styled.Text`
-  font-size: 20px;
-  color: ${({ theme }) => theme.COLORS.SUBTEXT};
-`
+  min-height: 300px;
+  height: auto;
 
-export const Title = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.COLORS.WHITE};
-`
+  margin-top: 10px;
+  padding: 15px;
+  padding-top: 25px;
 
-export const Form = styled.View`
   flex: 1;
-  justify-content: space-between;
-  margin-top: 1%;
+  align-items: center;
+  justify-content: space-evenly;
+
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`
+
+export const FooterTitle = styled.Text`
+  font-size: 18px;
+  color: ${({ theme }) => theme.COLORS.SUBTEXT};
+
+  margin-bottom: 20px;
+`
+
+export const TextInput = styled(Input)`
+  width: 100%;
+  margin-bottom: 10px;
+`
+
+export const ButtonContainer = styled.View`
   flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 20px;
+  gap: 10px;
+`
+
+export const Button = styled(TouchableOpacity)`
+  width: auto;
+  min-width: 120px;
+  height: 60px;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
+
+  border-radius: 5px;
+`
+
+export const ButtonText = styled.Text`
+  font-size: 14px;
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  text-transform: uppercase;
+`
+
+export const RegisterButton = styled(Button)`
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+`
+
+export const RegisterButtonText = styled(ButtonText)`
+  color: ${({ theme }) => theme.COLORS.PRIMARY};
+  text-decoration: solid;
 `

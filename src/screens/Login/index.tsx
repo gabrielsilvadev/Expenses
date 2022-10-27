@@ -1,24 +1,18 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
+import { setToken } from '../../services'
 import performLogin from '../../services/auth/login'
+import { ErrorMessage, SuccessMessage } from '../../styles/alerts'
 import auth from '../../utils/auth'
-import {
-  Button,
-  ButtonCadastro,
-  Container,
-  Footer,
-  Form,
-  Image,
-  InputLogin,
-  SubTitle,
-  Title,
-  TitleCadastro
-} from './styles'
+import * as S from './styles'
 
 export function Login() {
   const navigation = useNavigation()
+
   const [login, setLogin] = useState(true)
+  const [error, setError] = useState<string | undefined>()
+  const [success, setSuccess] = useState<string | undefined>()
 
   const [email, setEmail] = useState('')
 
@@ -29,9 +23,15 @@ export function Login() {
   async function handleLogin() {
     const { data } = await performLogin(email)
     if (data.success) {
+      setError(undefined)
+      setSuccess('Login realizado com successo!')
       auth.access_token = data.auth.access_token
       auth.refresh_token = data.auth.refresh_token
+      setToken(auth.access_token)
       navigation.navigate('Home')
+    } else {
+      setError('Email inválido!')
+      setSuccess(undefined)
     }
   }
 
@@ -39,46 +39,66 @@ export function Login() {
     wallet: require('../../img/wallet.png')
   }
 
+  useEffect(() => {
+    let intervalId: string | number | NodeJS.Timeout | undefined
+
+    if (error) {
+      intervalId = setTimeout(() => {
+        setError(undefined)
+      }, 5000)
+    } else if (success) {
+      intervalId = setTimeout(() => {
+        setSuccess(undefined)
+      }, 5000)
+    }
+
+    return () => {
+      if (intervalId) {
+        clearTimeout(intervalId)
+      }
+    }
+  }, [error, success])
+
   return (
-    <Container>
-      <Image source={image.wallet} />
+    <S.Container>
+      <S.Image source={image.wallet} />
       {login ? (
-        <Footer>
-          <SubTitle>Ola, Seja Bem Vindo</SubTitle>
-          <InputLogin
-            style={{ marginTop: '20%' }}
-            placeholder="Email"
+        <S.Footer>
+          {error && <ErrorMessage>{error}</ErrorMessage>}
+          {success && <SuccessMessage>{success}</SuccessMessage>}
+          <S.FooterTitle>Ola, Seja Bem Vindo</S.FooterTitle>
+          <S.TextInput
+            placeholder="expensies@user.com"
             keyboardType="email-address"
             onChangeText={setEmail}
             value={email}
           />
-          <Button onPress={() => handleLogin()}>
-            <Title>Login</Title>
-          </Button>
-          <ButtonCadastro onPress={() => setLogin(!login)}>
-            <Form>
-              <TitleCadastro style={{ marginLeft: '65%', marginTop: '25%' }}>
-                Cadastre-se
-              </TitleCadastro>
-            </Form>
-          </ButtonCadastro>
-        </Footer>
+          <S.ButtonContainer>
+            <S.Button onPress={() => handleLogin()}>
+              <S.ButtonText>Login</S.ButtonText>
+            </S.Button>
+            <S.RegisterButton onPress={() => setLogin(!login)}>
+              <S.RegisterButtonText>Cadastre-se</S.RegisterButtonText>
+            </S.RegisterButton>
+          </S.ButtonContainer>
+        </S.Footer>
       ) : (
-        <Footer>
-          <SubTitle>Cadastro</SubTitle>
-          <InputLogin placeholder="Nome" />
-          <InputLogin placeholder="Email" />
-          <InputLogin placeholder="Renda" />
-          <Button>
-            <Title>Cadastro</Title>
-          </Button>
-          <ButtonCadastro onPress={() => setLogin(!login)}>
-            <Form>
-              <TitleCadastro style={{ marginLeft: '76%' }}>Login</TitleCadastro>
-            </Form>
-          </ButtonCadastro>
-        </Footer>
+        <S.Footer>
+          <S.FooterTitle>Cadastro</S.FooterTitle>
+          <S.TextInput placeholder="Nome" />
+          <S.TextInput placeholder="Email" />
+          <S.TextInput placeholder="Renda" />
+
+          <S.ButtonContainer>
+            <S.Button>
+              <S.ButtonText>Cadastro</S.ButtonText>
+            </S.Button>
+            <S.RegisterButton onPress={() => setLogin(!login)}>
+              <S.RegisterButtonText>Login</S.RegisterButtonText>
+            </S.RegisterButton>
+          </S.ButtonContainer>
+        </S.Footer>
       )}
-    </Container>
+    </S.Container>
   )
 }

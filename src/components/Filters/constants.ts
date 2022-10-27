@@ -1,7 +1,6 @@
 import { generateMonthDate } from './helper'
 
 export const months = [
-  { label: 'Todas', color: '#383B43', value: 'all' },
   { label: 'JAN', color: '#383B43', value: generateMonthDate('01') },
   { label: 'FEV', color: '#383B43', value: generateMonthDate('02') },
   { label: 'MAR', color: '#383B43', value: generateMonthDate('03') },

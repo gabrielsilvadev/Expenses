@@ -14,4 +14,5 @@ export interface IClient {
   patch<T>(url: string, payload: unknown): Promise<IResponse<T>>
   put<T>(url: string, payload: unknown): Promise<IResponse<T>>
   delete<T>(url: string): Promise<IResponse<T>>
+  updateAuthToken(_token: string): void
 }

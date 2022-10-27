@@ -11,6 +11,10 @@ class FetchClient implements IClient {
     this.token = token
   }
 
+  updateAuthToken(_token: string): void {
+    this.token = _token
+  }
+
   async handleRequest<T>(
     url: string,
     method: string,
