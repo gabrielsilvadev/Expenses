@@ -21,7 +21,6 @@ export function ListExpenses() {
   }
 
   useEffect(() => {
-    console.log(status)
     fetchExpensies(status)
   }, [status])
 
