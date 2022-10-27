@@ -10,7 +10,7 @@ import { Container } from './styles'
 
 export function ListExpenses() {
   const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState('')
+  const [status, setStatus] = useState('?')
   const [expensies, setExpensies] = useState<TExpense[]>([])
 
   async function fetchExpensies(query = '') {
@@ -21,6 +21,7 @@ export function ListExpenses() {
   }
 
   useEffect(() => {
+    console.log(status)
     fetchExpensies(status)
   }, [status])
 
