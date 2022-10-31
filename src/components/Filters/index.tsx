@@ -54,8 +54,7 @@ export function Filters({ onFilter, status }: Props) {
             },
             viewContainer: {
               backgroundColor: '#fff',
-              elevation: 4,
-              height: 70,
+              height: '80%',
               width: '100%',
               marginBottom: 10,
               borderRadius: 10

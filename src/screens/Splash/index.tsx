@@ -1,6 +1,6 @@
 import { StackActions, useNavigation } from '@react-navigation/native'
 import Lottie from 'lottie-react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { Container } from './styles'
 

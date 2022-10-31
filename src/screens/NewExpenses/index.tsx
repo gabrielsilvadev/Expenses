@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native'
 import moment from 'moment'
 import React, { useState } from 'react'
 import RNPickerSelect from 'react-native-picker-select'
@@ -8,7 +7,6 @@ import { PicketInput } from '../../components/DatePicket'
 import { Input } from '../../components/Input'
 import { Switch } from '../../components/Switch'
 import createExpense from '../../services/expense/createExpense'
-import { formatDateToAPI } from '../../utils/date/format'
 import validateSchema from '../../utils/yup/validateSchema'
 import { ICreateExpense } from './@types'
 import { defaultColors } from './constants'
@@ -24,7 +22,6 @@ import {
 } from './styles'
 
 export function NewExpenses() {
-  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(undefined)
   const [success, setSuccess] = useState(undefined)
   const [date, setDate] = useState(new Date())
@@ -36,8 +33,6 @@ export function NewExpenses() {
   const [name, setName] = useState('')
   const [value, setValue] = useState('')
   const [color, setColor] = useState('')
-
-  const navigation = useNavigation()
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date
@@ -105,7 +100,17 @@ export function NewExpenses() {
             color: '#383B43'
           }}
           items={defaultColors}
-          style={RNPickerStyle}
+          style={{
+            viewContainer: {
+              borderWidth: 1,
+              paddingLeft: 16,
+              minHeight: 42,
+              justifyContent: 'center',
+              borderColor: '#C5CADA',
+              backgroundColor: '#fff',
+              borderRadius: 10
+            }
+          }}
         />
 
         <PicketInput
@@ -132,7 +137,7 @@ export function NewExpenses() {
         />
 
         {/* <Switch title="Conta Fixa" isEnabled={expanseFix} toggleSwitch={toggleSwitchExpanse} /> */}
-        <Button title="Salvar" onPress={saveExpense} isLoading={isLoading} />
+        <Button title="Salvar" onPress={saveExpense} />
       </Form>
     </Container>
   )

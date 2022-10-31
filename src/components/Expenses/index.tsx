@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { FlatList } from 'react-native'
 
-import { setToken } from '../../services'
 import { TExpense } from '../../services/expense/@types/expense'
 import getExpensies from '../../services/expense/getExpensies'
-import auth from '../../utils/auth'
 import { Expense } from '../Expense'
 import { Filters } from '../Filters'
 import { Load } from '../Load'

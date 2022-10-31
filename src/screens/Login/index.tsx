@@ -28,7 +28,7 @@ export function Login() {
       auth.access_token = data.auth.access_token
       auth.refresh_token = data.auth.refresh_token
       setToken(auth.access_token)
-      navigation.navigate('Home')
+      navigation.navigate('Main')
     } else {
       setError('Email inválido!')
       setSuccess(undefined)

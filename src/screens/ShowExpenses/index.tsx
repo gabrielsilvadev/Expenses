@@ -1,19 +1,12 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
 import { ListExpenses } from '../../components/Expenses'
-import { TExpense } from '../../services/expense/@types/expense'
-import getExpensies from '../../services/expense/getExpensies'
 import { Button, Container, Header, Title } from './styles'
 
 export function ShowExpenses() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [patrimony, setPatrimony] = useState('')
-  const [equipment, setEquipment] = useState('')
-  const [description, setDescription] = useState('')
-
   const navigation = useNavigation()
 
   function handleBack() {

@@ -5,16 +5,12 @@ import {
 } from '@react-navigation/native'
 import React from 'react'
 
-import LinkingConfiguration from '../routes/LinkingConfiguration'
 import { RootNavigator } from './app.routes'
+import LinkingConfiguration from './LinkingConfiguration'
 
-export function Routes({ colorScheme }) {
+export function Routes() {
   return (
-    <NavigationContainer
-      independent={true}
-      linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-    >
+    <NavigationContainer independent={true} linking={LinkingConfiguration}>
       <RootNavigator />
     </NavigationContainer>
   )

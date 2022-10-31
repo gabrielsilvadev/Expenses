@@ -1,19 +1,20 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { VictoryPie, VictoryTooltip } from 'victory-native'
 
-import { Button } from '../../components/Button'
 import { Card } from '../../components/Card'
 import { Header } from '../../components/Header'
+import { TExpense } from '../../services/expense/@types/expense'
+import getExpensies from '../../services/expense/getExpensies'
+import { TProfile } from '../../services/profile/@types/profile'
+import getUser from '../../services/profile/getUser'
 import { Cards, Chart, Container, Title } from './styles'
 
 export function Home() {
   const navigation = useNavigation()
-  const [data, setData] = useState([
-    { x: 'conta de luz', y: 35, color: '#267365' },
-    { x: 'conta agua', y: 70, color: '#F2CB05' },
-    { x: 'internet', y: 55, color: '#F29F05' }
-  ])
+  const [data, setData] = useState([])
+  const [expensies, setExpensies] = useState<TExpense[]>([])
+  const [user, setUser] = useState<TProfile>({})
   function toGoExpenses() {
     navigation.navigate('ShowExpenses')
   }
@@ -26,15 +27,46 @@ export function Home() {
   function toGoPix() {
     navigation.navigate('Pix')
   }
-  function ativeToolTip() {
-    setTimeout()
+
+  async function fetchExpensies() {
+    const user = await getUser()
+    setUser(user.data.profile)
+    const { data } = await getExpensies()
+    setExpensies(data.expensies)
+    await convertExpenses(expensies)
   }
+
+  function convertExpenses(data: TExpense[]) {
+    const expenseGraphic = []
+    console.log('ok')
+    let acc = Number(user.salary)
+    data.map((expense) => {
+      const calc = acc - Number(expense.value)
+      console.log(calc)
+      const value = Math.abs((acc - calc) / 100)
+
+      acc = Math.sign(calc) === -1 ? 0 : calc
+
+      expenseGraphic.push({
+        x: expense.name,
+        y: value,
+        color: expense.color
+      })
+    })
+
+    expenseGraphic.push({ x: 'Valor disponivel', y: acc, color: 'green' })
+    setData(expenseGraphic)
+  }
+
+  useEffect(() => {
+    fetchExpensies()
+  }, [])
 
   return (
     <Container>
       <Header />
       <Chart>
-        <Title>R$ 4000</Title>
+        <Title>R$ {user.salary}</Title>
         <VictoryPie
           height={370}
           cornerRadius={18}

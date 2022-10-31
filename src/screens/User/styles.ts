@@ -17,7 +17,7 @@ export const CardUser = styled.View`
   justify-content: space-between;
   width: 100%;
   border-bottom-color: ${({ theme }) => theme.COLORS.PRIMARY};
-  border-bottom-width: 1;
+  border-bottom-width: 1px;
   padding: 5px;
   height: 25%;
 `

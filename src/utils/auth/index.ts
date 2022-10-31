@@ -1,3 +1,4 @@
+import useAsyncStorage from '@react-native-async-storage/async-storage'
 export interface IAuth {
   access_token: string | null
   refresh_token: string | null

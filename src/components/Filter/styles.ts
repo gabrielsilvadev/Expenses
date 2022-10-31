@@ -14,6 +14,8 @@ export const Container = styled(TouchableOpacity)<FilterProps>`
 `
 
 export const Title = styled.Text`
-  font-size: 12px;
+  font-size: 15px;
+  margin-top: 2%;
+  text-align: center;
   color: ${({ theme }) => theme.COLORS.WHITE};
 `

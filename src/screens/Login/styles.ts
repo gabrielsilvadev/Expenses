@@ -27,7 +27,6 @@ export const Header = styled.View`
 
 export const Image = styled.Image`
   width: 100%;
-  margin-top: 2%;
   align-self: center;
   height: 50%;
 `

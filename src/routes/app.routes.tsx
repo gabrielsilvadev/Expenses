@@ -29,7 +29,7 @@ export function RootNavigator() {
       />
 
       <Stack.Screen
-        name="Home"
+        name="Main"
         component={AppRoutes}
         options={{ headerShown: false }}
       />
@@ -103,21 +103,15 @@ function AppRoutes() {
           title: '',
           tabBarActiveTintColor: '#719A82',
           tabBarVisible: true,
-          tabBarIcon: ({ color }) =>
-            showPlus ? (
-              <View style={styles.iconTabRound}>
-                <Icon name="plus" size={26} color="#fff" />
-              </View>
-            ) : (
-              <View
-                style={[
-                  styles.iconTabRound,
-                  { width: 40, marginTop: '20%', opacity: 0.5, height: 40 }
-                ]}
-              >
-                <Icon name="plus" size={26} color="#fff" />
-              </View>
-            )
+          tabBarIcon: () => (
+            <View
+              style={
+                showPlus ? styles.iconTabRound : styles.iconTabRoundPressed
+              }
+            >
+              <Icon name="plus" size={26} color="#fff" />
+            </View>
+          )
         })}
       />
       <Tab.Screen
@@ -156,7 +150,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#27AE60',
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 10,
+    shadowColor: '#27AE60',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.9,
+    shadowRadius: 5
+  },
+
+  iconTabRoundPressed: {
+    width: 40,
+    marginTop: '20%',
+    opacity: 0.5,
+    height: 40,
+    borderRadius: 30,
+    marginBottom: 20,
+    flexDirection: 'row',
+    backgroundColor: '#27AE60',
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: '#27AE60',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.9,
