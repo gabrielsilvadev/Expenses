@@ -16,7 +16,6 @@ import {
   ErrorMessage,
   Form,
   Header,
-  RNPickerStyle,
   SuccessMessage,
   Title
 } from './styles'
