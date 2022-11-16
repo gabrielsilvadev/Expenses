@@ -20,6 +20,8 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined
   ShowExpenses: undefined
   Wallet: undefined
+  NewExpenses: undefined
+  Splash: undefined
   Pix: undefined
   Home: undefined
 }

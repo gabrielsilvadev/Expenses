@@ -1,21 +1,27 @@
 {
   "expo": {
-    "name": "finances",
-    "slug": "finances",
+    "name": "sofia",
+    "slug": "sofia",
     "version": "1.0.0",
-    "scheme": "com.sr.lobak.finances",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
     "extra": {
       "eas": {
-        "projectId": "0685a965-7868-4df0-b524-77a6b8325fe7"
+        "projectId": "195ade4c-945f-411e-8dfb-5341450b24ea"
       }
     },
     "android": {
-      "package": "com.sr.lobak.finances"
+      "package": "com.gabrielsilvadev.sofia"
+    },
+    "ios": {
+      "bundleIdentifier": "com.gabrielsilvadev.sofia"
     }
   }
 }

@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
+import { Keyboard } from 'react-native'
 
 import { setToken } from '../../services'
 import performLogin from '../../services/auth/login'

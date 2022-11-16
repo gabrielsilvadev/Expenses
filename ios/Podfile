@@ -9,9 +9,8 @@ platform :ios, podfile_properties['ios.deploymentTarget'] || '12.0'
 install! 'cocoapods',
   :deterministic_uuids => false
 
-target 'realmdbapp' do
+target 'finances' do
   use_expo_modules!
-  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
   config = use_native_modules!
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
@@ -33,8 +32,6 @@ target 'realmdbapp' do
   # if !ENV['CI']
   #   use_flipper!()
   # end
-
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
   post_install do |installer|
     react_native_post_install(installer)

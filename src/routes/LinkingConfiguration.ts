@@ -10,7 +10,7 @@ import * as Linking from 'expo-linking'
 import { RootStackParamList } from '../@types/navigation'
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: ['/'],
   config: {
     screens: {
       Root: {
@@ -35,6 +35,8 @@ const linking: LinkingOptions<RootStackParamList> = {
       Pix: '*',
       ShowExpenses: '*',
       Home: '*',
+      Splash: '*',
+      NewExpenses: '*',
       Wallet: '*'
     }
   }
